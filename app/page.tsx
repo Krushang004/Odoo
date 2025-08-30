@@ -19,12 +19,15 @@ import AIChatBox from '@/components/AIChatBox'
 import BookingSystem from '@/components/BookingSystem'
 import ResourceHub from '@/components/ResourceHub'
 import PeerSupport from '@/components/PeerSupport'
-import AdminDashboard from '@/components/AdminDashboard'
+
 import AssessmentTool from '@/components/AssessmentTool'
+import { LanguageSelector } from '@/components/LanguageSelector'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState('home')
   const [showChat, setShowChat] = useState(false)
+  const { currentLanguage, getGreeting } = useLanguage()
 
   const features = [
     {
@@ -65,8 +68,6 @@ export default function HomePage() {
         return <PeerSupport />
       case 'assessment':
         return <AssessmentTool />
-      case 'admin':
-        return <AdminDashboard />
       default:
         return (
           <div className="space-y-8">
@@ -183,6 +184,26 @@ export default function HomePage() {
                 </div>
               </div>
             </motion.div>
+
+            {/* Admin Access */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 }}
+              className="card bg-gradient-to-r from-gray-50 to-gray-100"
+            >
+              <div className="text-center">
+                <h2 className="text-lg font-semibold text-gray-700 mb-2">Administrative Access</h2>
+                <p className="text-sm text-gray-600 mb-4">For system administrators and staff</p>
+                <button
+                  onClick={() => window.open('/admin', '_blank')}
+                  className="inline-flex items-center space-x-2 px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors text-sm"
+                >
+                  <Shield className="w-4 h-4" />
+                  <span>Access Admin Panel</span>
+                </button>
+              </div>
+            </motion.div>
           </div>
         )
     }
@@ -199,28 +220,32 @@ export default function HomePage() {
               <h1 className="text-xl font-bold text-gradient">Mental Health Support</h1>
             </div>
             
-            <div className="hidden md:flex space-x-1">
-              {[
-                { id: 'home', label: 'Home', icon: Heart },
-                { id: 'assessment', label: 'Assessment', icon: Brain },
-                { id: 'chat', label: 'AI Chat', icon: MessageCircle },
-                { id: 'booking', label: 'Booking', icon: Calendar },
-                { id: 'resources', label: 'Resources', icon: BookOpen },
-                { id: 'peer-support', label: 'Peer Support', icon: Users },
-                { id: 'admin', label: 'Admin', icon: BarChart3 }
-              ].map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    activeTab === tab.id
-                      ? 'bg-primary-100 text-primary-700'
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
+            <div className="hidden md:flex items-center space-x-4">
+              <div className="flex space-x-1">
+                {[
+                  { id: 'home', label: 'Home', icon: Heart },
+                  { id: 'assessment', label: 'Assessment', icon: Brain },
+                  { id: 'chat', label: 'AI Chat', icon: MessageCircle },
+                  { id: 'booking', label: 'Booking', icon: Calendar },
+                  { id: 'resources', label: 'Resources', icon: BookOpen },
+                  { id: 'peer-support', label: 'Peer Support', icon: Users }
+                ].map((tab) => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                      activeTab === tab.id
+                        ? 'bg-primary-100 text-primary-700'
+                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
+              
+              {/* Language Selector */}
+              <LanguageSelector size="sm" showLabel={false} />
             </div>
 
             <button
