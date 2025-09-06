@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" fill="white" rx="4"/>
+  <g transform="translate(16, 8)">
+    <!-- Trunk - single vertical line -->
+    <line x1="0" y1="4" x2="0" y2="10" stroke="#22c55e" stroke-width="2" stroke-linecap="round"/>
+    
+    <!-- Branches - thick dark green lines -->
+    <line x1="0" y1="4" x2="-3" y2="2" stroke="#22c55e" stroke-width="2" stroke-linecap="round"/>
+    <line x1="0" y1="4" x2="3" y2="2" stroke="#22c55e" stroke-width="2" stroke-linecap="round"/>
+    <line x1="0" y1="3" x2="-2" y2="1" stroke="#22c55e" stroke-width="2" stroke-linecap="round"/>
+    <line x1="0" y1="3" x2="2" y2="1" stroke="#22c55e" stroke-width="2" stroke-linecap="round"/>
+    
+    <!-- Six leaves - rounded elongated ovals -->
+    <ellipse cx="-3" cy="1" rx="2" ry="1.5" fill="#22c55e" transform="rotate(-15 -3 1)"/>
+    <ellipse cx="3" cy="1" rx="2" ry="1.5" fill="#22c55e" transform="rotate(15 3 1)"/>
+    <ellipse cx="-2" cy="0" rx="2" ry="1.5" fill="#22c55e" transform="rotate(-10 -2 0)"/>
+    <ellipse cx="2" cy="0" rx="2" ry="1.5" fill="#22c55e" transform="rotate(10 2 0)"/>
+    <ellipse cx="-1" cy="-1" rx="2" ry="1.5" fill="#22c55e" transform="rotate(-5 -1 -1)"/>
+    <ellipse cx="1" cy="-1" rx="2" ry="1.5" fill="#22c55e" transform="rotate(5 1 -1)"/>
+    
+    <!-- Soil - small flat oval -->
+    <ellipse cx="0" cy="12" rx="3" ry="1" fill="#8b4513"/>
+  </g>
+</svg>

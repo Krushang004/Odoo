@@ -1,16 +1,19 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { LanguageProvider } from '../contexts/LanguageContext'
+import { AuthProvider } from '@/components/AuthProvider'
+import { CartProvider } from '@/contexts/CartContext'
+import { Navbar } from '@/components/Navbar'
+import { Footer } from '@/components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Mental Health Support System',
-  description: 'Digital Psychological Intervention System for College Students - Providing AI-guided support, confidential counselling, and mental wellness resources.',
-  keywords: 'mental health, college students, psychological support, counselling, AI chat, mental wellness',
-  authors: [{ name: 'Mental Health Support Team' }],
-  viewport: 'width=device-width, initial-scale=1',
+  title: 'EcoFinds - Sustainable Second-Hand Marketplace',
+  description: 'Discover sustainable second-hand treasures and give items a second life',
+  icons: {
+    icon: '/favicon.svg',
+  },
 }
 
 export default function RootLayout({
@@ -21,11 +24,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <LanguageProvider>
-          <div className="min-h-screen bg-gradient-mental">
-            {children}
-          </div>
-        </LanguageProvider>
+        <AuthProvider>
+          <CartProvider>
+            <Navbar />
+            <main className="min-h-screen bg-forest-50">
+              {children}
+            </main>
+            <Footer />
+          </CartProvider>
+        </AuthProvider>
       </body>
     </html>
   )

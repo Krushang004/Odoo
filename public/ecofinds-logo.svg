@@ -1,0 +1,30 @@
+<svg width="200" height="80" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+  <!-- White Background -->
+  <rect width="200" height="80" fill="white" rx="8"/>
+  
+  <!-- Tree Icon - positioned centrally in upper half -->
+  <g transform="translate(100, 20)">
+    <!-- Trunk - single vertical line -->
+    <line x1="0" y1="8" x2="0" y2="20" stroke="#22c55e" stroke-width="4" stroke-linecap="round"/>
+    
+    <!-- Branches - thick dark green lines -->
+    <line x1="0" y1="8" x2="-8" y2="4" stroke="#22c55e" stroke-width="4" stroke-linecap="round"/>
+    <line x1="0" y1="8" x2="8" y2="4" stroke="#22c55e" stroke-width="4" stroke-linecap="round"/>
+    <line x1="0" y1="6" x2="-6" y2="2" stroke="#22c55e" stroke-width="4" stroke-linecap="round"/>
+    <line x1="0" y1="6" x2="6" y2="2" stroke="#22c55e" stroke-width="4" stroke-linecap="round"/>
+    
+    <!-- Six leaves - rounded elongated ovals with slight curve, symmetrically arranged -->
+    <ellipse cx="-8" cy="2" rx="5" ry="4" fill="#22c55e" transform="rotate(-15 -8 2)"/>
+    <ellipse cx="8" cy="2" rx="5" ry="4" fill="#22c55e" transform="rotate(15 8 2)"/>
+    <ellipse cx="-6" cy="0" rx="5" ry="4" fill="#22c55e" transform="rotate(-10 -6 0)"/>
+    <ellipse cx="6" cy="0" rx="5" ry="4" fill="#22c55e" transform="rotate(10 6 0)"/>
+    <ellipse cx="-4" cy="-2" rx="5" ry="4" fill="#22c55e" transform="rotate(-5 -4 -2)"/>
+    <ellipse cx="4" cy="-2" rx="5" ry="4" fill="#22c55e" transform="rotate(5 4 -2)"/>
+    
+    <!-- Soil/Ground - small flat oval below trunk base -->
+    <ellipse cx="0" cy="22" rx="6" ry="2" fill="#8b4513"/>
+  </g>
+  
+  <!-- Text "EcoFinds" - bold sans-serif, dark green, centered below tree -->
+  <text x="100" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#22c55e">EcoFinds</text>
+</svg>
